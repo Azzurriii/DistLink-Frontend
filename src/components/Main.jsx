@@ -3,7 +3,7 @@ import CallToAction from "./CallToAction"
 import {TiDeleteOutline} from "react-icons/ti"
 import UrlList from "./UrlList"
 import { useState, useEffect } from "react"
-
+import CustomUrl from "./CustomUrl"
 const getLocalStorage = () => {
     if(!localStorage.getItem('links')) return []
     return JSON.parse(localStorage.getItem('links'))
@@ -31,6 +31,7 @@ export default function Main() {
         <div className="flex justify-center">
             { links.length > 0 && <TiDeleteOutline className="btn-cross" onClick={hideLinks} /> }
         </div>
+        {links.length > 0 && <CustomUrl />}
         <section className="stats pb-11 lg:pb-20">
             <h3 className="title pb-2">Advanced Statistics</h3>
             <p className="subtitle">Track how many clicks your shortened URLs receive and measure their performance.</p>
